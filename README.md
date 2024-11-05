@@ -1,1 +1,1 @@
-# Quiz-for-kids
+# Kids quiz
