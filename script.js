@@ -77,3 +77,4 @@ const questions = [
   // Load the first question on page load
   window.onload = loadQuestion;
   
+  
