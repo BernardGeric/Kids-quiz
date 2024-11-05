@@ -71,3 +71,17 @@ const questions = [
   // Load the first question on page load
   window.onload = loadQuestion;
   
+  function loadQuestion() {
+    const questionContainer = document.getElementById('question-container');
+    const question = questions[currentQuestionIndex];
+    questionContainer.innerHTML = `<p>${question.question}</p>`;
+    
+    let buttonsHTML = '<div class="button-container">';
+    question.answers.forEach((answer, index) => {
+      buttonsHTML += `<button class="btn" onclick="checkAnswer(${index})">${answer}</button>`;
+    });
+    buttonsHTML += '</div>';
+    
+    questionContainer.innerHTML += buttonsHTML;
+  }
+  
