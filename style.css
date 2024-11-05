@@ -13,14 +13,14 @@ body {
   max-width: 600px;
   width: 90%;               /* Responsive width */
   padding: 20px;
-  background-color: #fff;
+  background-color: #67ec0f;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
 h1 {
-  color: #76ff69;
+  color: #cc18f0;
 }
 
 #question-container {
