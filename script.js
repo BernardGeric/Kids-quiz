@@ -29,19 +29,25 @@ const questions = [
     const questionContainer = document.getElementById('question-container');
     const question = questions[currentQuestionIndex];
     questionContainer.innerHTML = `<p>${question.question}</p>`;
-    
+  
+    let buttonsHTML = '<div class="button-container">';
     question.answers.forEach((answer, index) => {
-      questionContainer.innerHTML += `<button onclick="checkAnswer(${index})">${answer}</button>`;
+      buttonsHTML += `<button class="btn" onclick="checkAnswer(this, ${index})">${answer}</button>`;
     });
+    buttonsHTML += '</div>';
+  
+    questionContainer.innerHTML += buttonsHTML;
   }
   
-  function checkAnswer(selectedAnswer) {
+  function checkAnswer(button, selectedAnswer) {
     const correctAnswer = questions[currentQuestionIndex].correct;
     if (selectedAnswer === correctAnswer) {
       score += 5;
+    } else {
+      button.classList.add('incorrect'); // Turn button red if answer is wrong
     }
     document.getElementById('score').innerText = `Score: ${score}`;
-    document.getElementById('next-btn').style.display = "block";
+    document.getElementById('next-btn').style.display = "block"; // Show Next Question button
   }
   
   function nextQuestion() {
@@ -70,18 +76,4 @@ const questions = [
   
   // Load the first question on page load
   window.onload = loadQuestion;
-  
-  function loadQuestion() {
-    const questionContainer = document.getElementById('question-container');
-    const question = questions[currentQuestionIndex];
-    questionContainer.innerHTML = `<p>${question.question}</p>`;
-    
-    let buttonsHTML = '<div class="button-container">';
-    question.answers.forEach((answer, index) => {
-      buttonsHTML += `<button class="btn" onclick="checkAnswer(${index})">${answer}</button>`;
-    });
-    buttonsHTML += '</div>';
-    
-    questionContainer.innerHTML += buttonsHTML;
-  }
   
