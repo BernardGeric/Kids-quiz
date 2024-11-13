@@ -13,9 +13,10 @@ This is a simple interactive quiz application built using JavaScript, HTML, and 
 ## Testing
 
 - Testing was made in JSHint
--
-  ![Image of JS Hint Metrics](assets/images/JSHint.png)
+
   ![Image of JS Hint Metrics](assets/images/JSHint1.png)
+  
+  ![Image of JS Hint Metrics](assets/images/JSHint.png)  
 
 ## How It Works
 
