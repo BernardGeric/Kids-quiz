@@ -46,13 +46,6 @@ body {
   background-color: #ff4c4c; /* Red background for incorrect answer */
 }
 
-/* Centered Next Question button */
-#next-btn {
-  display: none;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #94ff69;
-}
 
 /* Container for answer buttons in a vertical layout */
 .button-container {

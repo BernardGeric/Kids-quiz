@@ -46,21 +46,22 @@ function checkAnswer(button, selectedAnswer) {
       button.classList.add('correct');
       score += 5;
       document.getElementById('score').innerText = `Score: ${score}`;
-
-      // Disable all buttons and proceed to the next question
-      disableButtons();
-      setTimeout(() => {
-          currentQuestionIndex++;
-          if (currentQuestionIndex < questions.length) {
-              loadQuestion();
-          } else {
-              showReward();
-          }
-      }, 1000);
   } else {
       button.classList.add('incorrect');
-      setTimeout(() => button.classList.remove('incorrect'), 500); // Flash red and reset
+      score = Math.max(0, score - 2); // Deduct 2 points, but don't go below 0
+      document.getElementById('score').innerText = `Score: ${score}`;
   }
+
+  disableButtons();
+
+  setTimeout(() => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+          loadQuestion();
+      } else {
+          showReward();
+      }
+  }, 1000);
 }
 
 function disableButtons() {
@@ -94,6 +95,7 @@ function restart() {
 }
 
 window.onload = loadQuestion;
+
 
 
 
