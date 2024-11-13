@@ -48,8 +48,6 @@ function checkAnswer(button, selectedAnswer) {
       document.getElementById('score').innerText = `Score: ${score}`;
   } else {
       button.classList.add('incorrect');
-      score = Math.max(0, score - 2); // Deduct 2 points, but don't go below 0
-      document.getElementById('score').innerText = `Score: ${score}`;
   }
 
   disableButtons();
@@ -95,6 +93,8 @@ function restart() {
 }
 
 window.onload = loadQuestion;
+
+
 
 
 
