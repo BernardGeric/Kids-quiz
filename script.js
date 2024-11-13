@@ -42,23 +42,30 @@ function loadQuestion() {
 function checkAnswer(button, selectedAnswer) {
   const correctAnswer = questions[currentQuestionIndex].correct;
 
+  // Highlight the selected answer
   if (selectedAnswer === correctAnswer) {
-      button.classList.add('correct');
-      score += 5;
-      document.getElementById('score').innerText = `Score: ${score}`;
+    button.classList.add('correct'); // Correct answer green
+    score += 5;
+    document.getElementById('score').innerText = `Score: ${score}`;
   } else {
-      button.classList.add('incorrect');
+    button.classList.add('incorrect'); // Incorrect answer red
   }
 
+  // Highlight the correct answer
+  const buttons = document.querySelectorAll('.btn');
+  buttons[correctAnswer].classList.add('correct');
+
+  // Disable all buttons
   disableButtons();
 
+  // Move to the next question after a delay
   setTimeout(() => {
-      currentQuestionIndex++;
-      if (currentQuestionIndex < questions.length) {
-          loadQuestion();
-      } else {
-          showReward();
-      }
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      loadQuestion();
+    } else {
+      showReward();
+    }
   }, 1000);
 }
 
