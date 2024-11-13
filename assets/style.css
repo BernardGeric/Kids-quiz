@@ -41,9 +41,16 @@ body {
   background-color: #0056b3;
 }
 
+/* Correct answer style */
+.btn.correct {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
 /* Incorrect answer style */
 .btn.incorrect {
-  background-color: #ff4c4c; /* Red background for incorrect answer */
+  background-color: #ff4c4c; /* Red */
+  color: white;
 }
 
 
