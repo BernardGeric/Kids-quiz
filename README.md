@@ -15,7 +15,7 @@ This is a simple interactive quiz application built using JavaScript, HTML, and 
 - Testing was made in JSHint
 
   ![Image of JS Hint Metrics](assets/images/JSHint1.png)
-  
+
   ![Image of JS Hint Metrics](assets/images/JSHint.png)  
 
 ## How It Works
@@ -42,7 +42,7 @@ This is a simple interactive quiz application built using JavaScript, HTML, and 
 
 ### Deployment to Github pages
 
-- The site was deployed to Github pages
+- The site was deployed to Github pages under name Kids quiz
 
 ## Credits
 
