@@ -26,6 +26,8 @@ let score = 0;
 
 function loadQuestion() {
   const questionContainer = document.getElementById('question-container');
+  const restartBtn = document.getElementById('restart-btn');
+  restartBtn.style.visibility = 'hidden'; // Hide the restart button initially
   const question = questions[currentQuestionIndex];
   questionContainer.innerHTML = `<p>${question.question}</p>`;
   
@@ -39,35 +41,62 @@ function loadQuestion() {
 
 function checkAnswer(button, selectedAnswer) {
   const correctAnswer = questions[currentQuestionIndex].correct;
-  const buttons = document.querySelectorAll('.btn');
 
-  buttons.forEach(btn => btn.setAttribute('disabled', true));
-  
   if (selectedAnswer === correctAnswer) {
       button.classList.add('correct');
       score += 5;
+      document.getElementById('score').innerText = `Score: ${score}`;
+
+      // Disable all buttons and proceed to the next question
+      disableButtons();
       setTimeout(() => {
           currentQuestionIndex++;
           if (currentQuestionIndex < questions.length) {
               loadQuestion();
           } else {
-              restart();
+              showReward();
           }
       }, 1000);
   } else {
       button.classList.add('incorrect');
+      setTimeout(() => button.classList.remove('incorrect'), 500); // Flash red and reset
   }
-  
-  document.getElementById('score').innerText = `Score: ${score}`;
+}
+
+function disableButtons() {
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(btn => btn.setAttribute('disabled', true));
+}
+
+function showReward() {
+  const rewardContainer = document.getElementById('question-container');
+  const restartBtn = document.getElementById('restart-btn');
+
+  if (score >= 90) {
+      rewardContainer.innerHTML = "🎉 Congratulations! You earned the 1st place! 🎉";
+  } else if (score >= 70) {
+      rewardContainer.innerHTML = "🎉 Great job! You earned the 2nd place! 🎉";
+  } else if (score >= 50) {
+      rewardContainer.innerHTML = "🎉 Good effort! You earned the 3rd place! 🎉";
+  } else {
+      rewardContainer.innerHTML = "Keep trying! You can do it!";
+  }
+
+  rewardContainer.innerHTML += `<div id="score-display">Final Score: ${score}</div>`;
+  restartBtn.style.visibility = 'visible'; // Show the restart button
 }
 
 function restart() {
   currentQuestionIndex = 0;
   score = 0;
+  document.getElementById('score').innerText = `Score: ${score}`;
   loadQuestion();
 }
 
 window.onload = loadQuestion;
+
+
+
 
   
   
