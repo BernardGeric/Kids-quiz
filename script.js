@@ -1,3 +1,10 @@
+/**
+ * Array of questions for the quiz.
+ * Each question object contains:
+ * - question: The question text.
+ * - answers: Array of answer options.
+ * - correct: Index of the correct answer in the answers array.
+ */
 const questions = [
   { question: "What color is the sky?", answers: ["Blue", "Green", "Red", "Yellow"], correct: 0 },
   { question: "How many legs does a dog have?", answers: ["2", "3", "4", "5"], correct: 2 },
@@ -21,9 +28,13 @@ const questions = [
   { question: "Which animal is big and gray?", answers: ["Cat", "Dog", "Elephant", "Fish"], correct: 2 }
 ];
 
-let currentQuestionIndex = 0;
-let score = 0;
+let currentQuestionIndex = 0; // Index of the current question being displayed
+let score = 0; // User's current score
 
+/**
+ * Loads the current question and its answers onto the page.
+ * Initializes the question container and hides the restart button.
+ */
 function loadQuestion() {
   const questionContainer = document.getElementById('question-container');
   const restartBtn = document.getElementById('restart-btn');
@@ -39,6 +50,13 @@ function loadQuestion() {
   questionContainer.innerHTML += buttonsHTML;
 }
 
+/**
+ * Checks if the selected answer is correct.
+ * Highlights the selected button and the correct answer.
+ * Updates the score if the answer is correct and moves to the next question.
+ * @param {HTMLElement} button - The button element that was clicked.
+ * @param {number} selectedAnswer - The index of the selected answer.
+ */
 function checkAnswer(button, selectedAnswer) {
   const correctAnswer = questions[currentQuestionIndex].correct;
 
@@ -69,11 +87,18 @@ function checkAnswer(button, selectedAnswer) {
   }, 1000);
 }
 
+/**
+ * Disables all answer buttons to prevent multiple clicks.
+ */
 function disableButtons() {
   const buttons = document.querySelectorAll('.btn');
   buttons.forEach(btn => btn.setAttribute('disabled', true));
 }
 
+/**
+ * Displays the final reward or feedback based on the user's score.
+ * Makes the restart button visible.
+ */
 function showReward() {
   const rewardContainer = document.getElementById('question-container');
   const restartBtn = document.getElementById('restart-btn');
@@ -92,6 +117,10 @@ function showReward() {
   restartBtn.style.visibility = 'visible'; // Show the restart button
 }
 
+/**
+ * Restarts the quiz by resetting the question index and score.
+ * Reloads the first question.
+ */
 function restart() {
   currentQuestionIndex = 0;
   score = 0;
@@ -99,7 +128,9 @@ function restart() {
   loadQuestion();
 }
 
+// Load the first question when the page loads
 window.onload = loadQuestion;
+
 
 
 
