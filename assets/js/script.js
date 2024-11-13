@@ -130,13 +130,3 @@ function restart() {
 
 // Load the first question when the page loads
 window.onload = loadQuestion;
-
-
-
-
-
-
-
-
-  
-  
