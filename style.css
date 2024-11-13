@@ -53,3 +53,14 @@ body {
   flex-direction: column; /* Stack buttons vertically */
   gap: 10px; /* Space between each button */
 }
+
+#restart-btn {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
